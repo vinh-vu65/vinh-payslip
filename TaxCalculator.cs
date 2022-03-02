@@ -8,7 +8,7 @@ public class TaxCalculator
     public double monthlyTax;
     public double monthlySuper;
 
-    public TaxCalculator(double annualSalary, double superRate)
+    public TaxCalculator (double annualSalary, double superRate)
     {
         _annualSalary = annualSalary;
         monthlyGrossIncome = Math.Round(_annualSalary / 12, MidpointRounding.AwayFromZero);
@@ -17,7 +17,7 @@ public class TaxCalculator
         monthlySuper = Math.Round((monthlyGrossIncome * superRate) / 100, MidpointRounding.AwayFromZero);
     }
 
-    public double CalculateMonthlyIncomeTax(double annualSalary)
+    public double CalculateMonthlyIncomeTax (double annualSalary)
     {
         double totalTax = 0;
         if (annualSalary >= 18201 && annualSalary <= 37000)
@@ -40,7 +40,7 @@ public class TaxCalculator
         return Math.Round(totalTax / 12, MidpointRounding.AwayFromZero);
     }
 
-    public double CalculateMonthlySuper(double monthlyGrossIncome, double superRate)
+    public double CalculateMonthlySuper (double monthlyGrossIncome, double superRate)
     {
         return Math.Round((monthlyGrossIncome * superRate) / 100, MidpointRounding.AwayFromZero);
     }

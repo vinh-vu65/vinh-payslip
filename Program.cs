@@ -4,7 +4,7 @@ using System;
 public class Program
 {    public static void Main(string[] args)
     {
-        string userFirstname, userSurname, startDate, endDate;
+        string userFirstname, userSurname, payPeriod;
         double yearlyIncome, superRate;
         
         Console.WriteLine("Welcome to the payslip generator! \n");
@@ -37,62 +37,13 @@ public class Program
         }
         
 
-        Console.Write("Please enter your payment start date: ");
-        startDate = Console.ReadLine();
-
-        Console.Write("Please enter your payment end date: ");
-        endDate = Console.ReadLine();
+        Console.Write("Please enter pay period month in full: ");
+        payPeriod = Console.ReadLine();
 
         User u = new User(userFirstname, userSurname, yearlyIncome, superRate);
         TaxCalculator t = new TaxCalculator(yearlyIncome, superRate);
-        
-        
-        //monthlyGrossIncome = Math.Round(yearlyIncome / 12, MidpointRounding.AwayFromZero);
-        
-        
-        
+        Payslip p = new Payslip(u, t, payPeriod);
+        p.DisplayPayslip();
 
-        //monthlyTax = Math.Round(totalTax / 12, MidpointRounding.AwayFromZero);
-        //monthlyNetIncome = monthlyGrossIncome - monthlyTax;
-        //monthlySuper = Math.Round((monthlyGrossIncome * superRate) / 100, MidpointRounding.AwayFromZero);
-
-        Console.WriteLine("\n Your payslip has been generated: \n");
-        Console.WriteLine($"Name: {u._userFirstname} {u._userSurname}");
-        Console.WriteLine($"Pay period: {startDate} -- {endDate}");
-        Console.WriteLine($"Gross Income: {t.monthlyGrossIncome}");
-        Console.WriteLine($"Income Tax: {t.monthlyTax}");
-        Console.WriteLine($"Net Income: {t.monthlyNetIncome}");
-        Console.WriteLine($"Super: {t.monthlySuper}");
-        Console.WriteLine("\n Thank you for using MYOB!");
     }
 }
-
-
-
-
-
-/* TODO: Seperate into classes:
-User class
-    Constructor: first name + last name
-    properties: 
-    - First name
-    - Last name
-    - Annual Salary
-    - Super rate
-
-Tax Calc Class
-    properties:
-    - Annual salary (put in as constructor parameter?)
-    - Monthly Gross salary
-    - Annual Tax
-    - Monthly Tax
-    - Net Monthly income
-    - Super amount (?maybe group with payslip class)
-
-Payslip class
-    Properties:
-    - Inherit user details (ie. Name)  user = contructor parameter?
-    - Calendar month for pay period (customise month end date)
-    - Display Gross income, income tax and net income
-    - Super
-*/
