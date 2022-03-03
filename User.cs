@@ -14,5 +14,4 @@ public class User
         _annualSalary = annualSalary;
         _superRate = superRate;
     }
-
 }
