@@ -21,7 +21,7 @@ public class TaxCalculator
     private const double taxTier3Rate = 0.37;
     private const double taxTier4Rate = 0.45;
 
-//Culmulative tax values for each tier
+//Cumulative tax values for each tier
     private const double taxFromTier1 = 3572;
     private const double taxFromTier2 = 19822;
     private const double taxFromTier3 = 54232;
